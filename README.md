@@ -15,7 +15,7 @@ First of all, you need to include the JiraClient class which can be used easily 
   );
 
   // Create client (credentials missing here!)
-  $c= new JiraClient('https://inside.1and1.org/development/jira/rest/api/2/');
+  $c= new JiraClient('https://jira.example.com/rest/api/2/');
 
   // Query for issues
   $issues= $c->queryIssues(create(new JiraQuery())
@@ -24,18 +24,21 @@ First of all, you need to include the JiraClient class which can be used easily 
   );
 
   // Print out list of issues
-  foreach ($issues as $issue) Console::writeLinef(
-    '==> %s: %s (%s)',
-    $issue->getKey(),
-    $issue->getSummary(),
-    $issue->getStatus()->toString()
-  );
+  foreach ($issues as $issue) {
+    Console::writeLinef(
+      '==> %s: %s (%s)',
+      $issue->getKey(),
+      $issue->getSummary(),
+      $issue->getStatus()->toString()
+    );
+  }
 ?>
 ```
 
 The classes
 -- 
 The current implementation has the following classes:
+
 * com.atlassian.jira.api.JiraClient - the client class which is the main entry point for the application
 * com.atlassian.jira.api.query.JiraQuery - the query object which can be used to build the query
 * com.atlassian.jira.api.query.JiraQueryCriteria - a more complex query object which can be used to build a complex query (see below)
@@ -43,6 +46,7 @@ The current implementation has the following classes:
 * com.atlassian.jira.api.query.JiraQueryResult - the query result object which contains all information returned for a query
  
 The different types:
+
 * com.atlassian.jira.api.types.JiraProject - a representation for the JIRA project
 * com.atlassian.jira.api.types.JiraComponent - a representation for the JIRA component
 * com.atlassian.jira.api.types.JiraIssue - a representation for the JIRA issue* com.atlassian.jira.api.types.JiraPerson - a representation for a person
@@ -51,6 +55,7 @@ The different types:
 * com.atlassian.jira.api.types.JiraIssueType - a representation of the issue type
  
 The gadgets currently implemented:
+
 * com.atlassian.jira.api.gadget.JiraStatsGadget - Generates a list of issue statistic (e.g. assigned issues by person)
 * com.atlassian.jira.api.gadget.JiraCreatedVsResolvedGadget - Shows a statistics chart for created vs. resolved issues for a given query or filter
 

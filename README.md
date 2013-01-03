@@ -93,17 +93,19 @@ JQL query example
   );
 
   // Create client (credentials missing here!)
-  $c= new JiraClient('https://jira.example.com/development/jira/rest/api/2/');
+  $c= new JiraClient('https://jira.example.com/rest/api/2/');
 
   // Query for issues
   $issues= $c->queryIssues(new JqlQuery('status = "Open" and project = "Example"'));
 
   // Print out list of issues
-  foreach ($issues as $issue) Console::writeLinef(
-    '==> %s: %s (%s)',
-    $issue->getKey(),
-    $issue->getSummary(),
-    $issue->getStatus()
-  );
+  foreach ($issues as $issue) {
+    Console::writeLinef(
+      '==> %s: %s (%s)',
+      $issue->getKey(),
+      $issue->getSummary(),
+      $issue->getStatus()->toString()
+    );
+  }
 ?>
 ```

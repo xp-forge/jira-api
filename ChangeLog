@@ -1,2 +1,28 @@
-jira-api ChangeLog
+JIRA API ChangeLog
 ========================================================================
+
+Version 1.0.1, released 2013-??-??
+----------------------------------
+Git commit: ???
+
+Bugfixes
+~~~~~~~~
+- Fixed adding authorization header by using the addHeader() function
+  correctly
+  (pdietz)
+
+Features
+~~~~~~~~
+- Refactored the query API a little bit and introduced JqlQuery class
+  (thekid)
+
+
+Version 1.0.0, released 2012-09-17
+----------------------------------
+Git commit: f90885ae71a36ad51ee8854cc2d645233643931a
+
+Features
+~~~~~~~~
+- Initial JIRA API implementation
+  (ohinckel)
+

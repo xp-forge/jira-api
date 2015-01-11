@@ -3,6 +3,7 @@ JIRA API ChangeLog
 
 ## 2.0.0 / 2015-01-11
 
+* Heads up: Changed Google-Search to depend on XP6 core (@thekid)
 * Migrated code to namespaces (thekid)
 
 ## 1.0.1 / 2013-01-07

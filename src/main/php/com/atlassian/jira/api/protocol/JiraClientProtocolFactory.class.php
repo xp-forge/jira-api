@@ -4,7 +4,7 @@
  * $Id$ 
  */
 
-  uses('peer.URL');
+  uses('peer.URL', 'lang.IllegalArgumentException');
   
   /**
    * JIRA client protocol factory
@@ -33,5 +33,4 @@
       }
     }
   }
-
 ?>

@@ -32,7 +32,7 @@
      */
     #[@test]
     public function restV2() {
-      $this->assertClass($this->fixture->forURL('http://server/rest/api/2/'), 'com.atlassian.jira.api.protocol.JiraClientRest2Protocol');
+      $this->assertInstanceOf('com.atlassian.jira.api.protocol.JiraClientRest2Protocol', $this->fixture->forURL('http://server/rest/api/2/'));
     }
     
     /**
@@ -44,5 +44,4 @@
       $this->fixture->forURL('http://server/a/wrong/url/');
     }
   }
-
 ?>

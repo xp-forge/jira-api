@@ -6,6 +6,7 @@
 
   uses(
     'unittest.TestCase',
+    'unittest.PrerequisitesNotMetError',
     'peer.URL',
     'com.atlassian.jira.api.protocol.JiraClientRest2Protocol',
     'com.atlassian.jira.api.query.JiraQuery',

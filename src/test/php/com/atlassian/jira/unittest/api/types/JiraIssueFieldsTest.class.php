@@ -6,6 +6,7 @@
 
   uses(
     'unittest.TestCase',
+    'util.Date',
     'com.atlassian.jira.api.types.JiraProject',
     'com.atlassian.jira.api.types.JiraIssueFields',
     'com.atlassian.jira.api.types.JiraIssueType'

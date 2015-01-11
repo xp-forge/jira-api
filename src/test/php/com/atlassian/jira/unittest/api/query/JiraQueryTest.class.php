@@ -33,7 +33,7 @@
      */
     #[@test]
     public function instance() {
-      $this->assertClass($this->fixture, 'com.atlassian.jira.api.query.JiraQuery');
+      $this->assertInstanceOf('com.atlassian.jira.api.query.JiraQuery', $this->fixture);
     }
     
     /**

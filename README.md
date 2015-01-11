@@ -7,32 +7,28 @@ Usage example
 First of all, you need to include the JiraClient class which can be used easily to access the JIRA resources. The following shows a short code example how to use it:
 
 ```php
-<?php
-  uses(
-    'com.atlassian.jira.api.JiraClient',
-    'com.atlassian.jira.api.query.JiraQuery',
-    'com.atlassian.jira.api.query.JiraQueryOp'
+use com\atlassian\jira\api\JiraClient;
+use com\atlassian\jira\api\query\JiraQuery;
+use com\atlassian\jira\api\query\JiraQueryOp;
+
+// Create client (credentials missing here!)
+$c= new JiraClient('https://jira.example.com/rest/api/2/');
+
+// Query for issues
+$issues= $c->queryIssues((new JiraQuery())
+  ->add('status', 'Open', JiraQueryOp::$EQUALS)
+  ->addAnd('project', 'BIT', JiraQueryOp::$EQUALS)
+);
+
+// Print out list of issues
+foreach ($issues as $issue) {
+  Console::writeLinef(
+    '==> %s: %s (%s)',
+    $issue->getKey(),
+    $issue->getSummary(),
+    $issue->getStatus()->toString()
   );
-
-  // Create client (credentials missing here!)
-  $c= new JiraClient('https://jira.example.com/rest/api/2/');
-
-  // Query for issues
-  $issues= $c->queryIssues(create(new JiraQuery())
-    ->add('status', 'Open', JiraQueryOp::$EQUALS)
-    ->addAnd('project', 'BIT', JiraQueryOp::$EQUALS)
-  );
-
-  // Print out list of issues
-  foreach ($issues as $issue) {
-    Console::writeLinef(
-      '==> %s: %s (%s)',
-      $issue->getKey(),
-      $issue->getSummary(),
-      $issue->getStatus()->toString()
-    );
-  }
-?>
+}
 ```
 
 The classes
@@ -64,48 +60,42 @@ Using a gadget
 Gadget are extension for JIRA which does some "magic". For example it can do special reports or generates some fancy charts. The following example is using the statistics gadget:
 
 ```php
-<?php
-  $result= $client->generateGadget($gadget= create(new JiraStatsGadget())
-    ->withProjectOrFilterId('filter-11675')  // Bugs assigned to iDev
-  );
-  $n= $stats->addChild(new Node('gadget', NULL, array(
-    'name'   => $gadget->getName(),
-    'title'  => $result->getFilterOrProjectName(),
-    'issues' => $result->getTotalIssueCount()
+$result= $client->generateGadget($gadget= create(new JiraStatsGadget())
+  ->withProjectOrFilterId('filter-11675')  // Bugs assigned to iDev
+);
+$n= $stats->addChild(new Node('gadget', NULL, array(
+  'name'   => $gadget->getName(),
+  'title'  => $result->getFilterOrProjectName(),
+  'issues' => $result->getTotalIssueCount()
+)));
+foreach ($result->getRows() as $row){
+  $n->addChild(new Node('person', strip_tags($row['html']), array(
+    'percent' => $row['percentage'],
+    'count'   => $row['count']
   )));
-  foreach ($result->getRows() as $row){
-    $n->addChild(new Node('person', strip_tags($row['html']), array(
-      'percent' => $row['percentage'],
-      'count'   => $row['count']
-    )));
-  }
-?>
+}
 ```
 
 
 JQL query example
 --
 ```php
-<?php
-  uses(
-    'com.atlassian.jira.api.JiraClient',
-    'com.atlassian.jira.api.query.JqlQuery'
+use com\atlassian\jira\api\JiraClient;
+use com\atlassian\jira\api\query\JqlQuery;
+
+// Create client (credentials missing here!)
+$c= new JiraClient('https://jira.example.com/rest/api/2/');
+
+// Query for issues
+$issues= $c->queryIssues(new JqlQuery('status = "Open" and project = "Example"'));
+
+// Print out list of issues
+foreach ($issues as $issue) {
+  Console::writeLinef(
+    '==> %s: %s (%s)',
+    $issue->getKey(),
+    $issue->getSummary(),
+    $issue->getStatus()->toString()
   );
-
-  // Create client (credentials missing here!)
-  $c= new JiraClient('https://jira.example.com/rest/api/2/');
-
-  // Query for issues
-  $issues= $c->queryIssues(new JqlQuery('status = "Open" and project = "Example"'));
-
-  // Print out list of issues
-  foreach ($issues as $issue) {
-    Console::writeLinef(
-      '==> %s: %s (%s)',
-      $issue->getKey(),
-      $issue->getSummary(),
-      $issue->getStatus()->toString()
-    );
-  }
-?>
+}
 ```

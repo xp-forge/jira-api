@@ -1,36 +1,33 @@
-<?php
-/* This class is part of the XP framework
- *
- * $Id$ 
- */
+<?php namespace com\atlassian\jira\api\protocol;
 
-  uses('peer.URL', 'lang.IllegalArgumentException');
+use peer\URL;
+use lang\IllegalArgumentException;
+
+
+/**
+ * JIRA client protocol factory
+ *
+ * @test xp://com.atlassian.unittest.api.JiraClientProtocolFactoryTest
+ * @purpose  Protocol factory
+ */
+class JiraClientProtocolFactory extends \lang\Object {
   
   /**
-   * JIRA client protocol factory
-   *
-   * @test xp://com.atlassian.unittest.api.JiraClientProtocolFactoryTest
-   * @purpose  Protocol factory
+   * Create client by inspecting the URL
+   * 
+   * @param string url The API url
+   * @return com.atlassian.jira.api.JiraClientProtocol
    */
-  class JiraClientProtocolFactory extends Object {
+  public static function forURL($url) {
+    $u= new URL($url);
     
-    /**
-     * Create client by inspecting the URL
-     * 
-     * @param string url The API url
-     * @return com.atlassian.jira.api.JiraClientProtocol
-     */
-    public static function forURL($url) {
-      $u= new URL($url);
+    // Check for REST API client v2
+    if (create(new \lang\types\String($u->getPath()))->contains('/rest/api/2')) {
+      return \lang\XPClass::forName('com.atlassian.jira.api.protocol.JiraClientRest2Protocol')->newInstance($u);
       
-      // Check for REST API client v2
-      if (create(new String($u->getPath()))->contains('/rest/api/2')) {
-        return XPClass::forName('com.atlassian.jira.api.protocol.JiraClientRest2Protocol')->newInstance($u);
-        
-      // No suitable protocol found
-      } else {
-        throw new IllegalArgumentException('No suitable client found for '.$url);
-      }
+    // No suitable protocol found
+    } else {
+      throw new IllegalArgumentException('No suitable client found for '.$url);
     }
   }
-?>
+}

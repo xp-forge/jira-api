@@ -1,6 +1,8 @@
 JIRA API ChangeLog
 ========================================================================
 
+- Migrated code to namespaces (thekid)
+
 Version 1.0.1, released 2013-01-07
 ----------------------------------
 Git commit: 85532c8e4c11ffb9502e9a14419b978d96347fe0

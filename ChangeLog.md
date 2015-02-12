@@ -1,6 +1,12 @@
 JIRA API ChangeLog
 ========================================================================
 
+## ?.?.? / ????-??-??
+
+## 2.0.1 / 2015-02-12
+
+* Changed dependency to use XP ~6.0 (instead of dev-master) - @thekid
+
 ## 2.0.0 / 2015-01-11
 
 * Heads up: Changed Google-Search to depend on XP6 core (@thekid)

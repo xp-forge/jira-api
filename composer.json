@@ -6,7 +6,7 @@
   "description" : "Atlassian JIRA client API for XP Framework",
   "keywords": ["module", "xp"],
   "require" : {
-    "xp-framework/core" : "dev-master",
+    "xp-framework/core" : "~6.0",
     "xp-framework/rest" : "~6.0",
     "php" : ">=5.4.0"
   },

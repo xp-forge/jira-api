@@ -1,5 +1,7 @@
 <?php namespace com\atlassian\jira\api;
 
+use com\atlassian\jira\api\protocol\JiraClientProtocolFactory;
+
 /**
  * JIRA client
  */

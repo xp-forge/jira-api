@@ -4,6 +4,8 @@ use com\atlassian\jira\api\protocol\JiraClientProtocolFactory;
 
 /**
  * JIRA client
+ *
+ * @test  xp://com.atlassian.jira.unittest.JiraClientTest
  */
 class JiraClient extends \lang\Object implements \util\log\Traceable {
   protected $proto;

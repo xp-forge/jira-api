@@ -4,7 +4,7 @@
  * JIRA client
  */
 class JiraClient extends \lang\Object implements \util\log\Traceable {
-  protected $proto
+  protected $proto;
 
   /**
    * Creates a new JIRA client instance

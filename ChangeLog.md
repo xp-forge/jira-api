@@ -3,6 +3,12 @@ JIRA API ChangeLog
 
 ## ?.?.? / ????-??-??
 
+## 2.1.0 / 2015-09-27
+
+* Added compatibility with XP 6.5.0: Refrain from using `create()`, use
+  new `assertInstanceOf()` instead of deprecated `assertClass()`.
+  (@thekid)
+
 ## 2.0.3 / 2015-09-26
 
 * QA: Migrated codebase to use PHP 5.4 short array syntax (@thekid)

@@ -4,7 +4,6 @@ use peer\URL;
 use peer\http\BasicAuthorization;
 use webservices\rest\RestClient;
 
-
 /**
  * JIRA client protocol interface
  *
@@ -43,7 +42,7 @@ class JiraClientRest2Protocol extends \lang\Object implements JiraClientProtocol
    * @return webservices.rest.RestResponse
    */
   protected function req($path, $args= []) {
-    $req= create(new \webservices\rest\RestRequest())
+    $req= (new \webservices\rest\RestRequest())
       ->withHeader(new BasicAuthorization($this->url->getUser(), $this->url->getPassword()))
       ->withResource(rtrim($this->url->getPath(), '/').$path)
       ->withMethod(\peer\http\HttpConstants::GET);

@@ -3,66 +3,37 @@
 use unittest\TestCase;
 use com\atlassian\jira\api\types\JiraComponent;
 
-
-/**
- * Test JiraComponent class
- *
- * @purpose  Test
- */
 class JiraComponentTest extends TestCase {
-  protected
-    $fixture= null;
+  private $fixture;
   
-  /**
-   * Set up
-   *  
-   */
+  /** @return void */
   public function setUp() {
     $this->fixture= new JiraComponent();
   }
   
-  /**
-   * Test instance
-   *  
-   */
+  #[@test]
   public function instance() {
-    $this->assertClass($this->fixture, 'com.atlassian.jira.api.types.JiraComponent');
+    $this->assertInstanceOf('com.atlassian.jira.api.types.JiraComponent', $this->fixture);
   }
   
-  /**
-   * Set self
-   *  
-   */
   #[@test]
   public function self() {
     $this->fixture->setSelf('http://server/path/to/jira/component/1');
     $this->assertEquals('http://server/path/to/jira/component/1', $this->fixture->getSelf());
   }
   
-  /**
-   * Test id
-   *  
-   */
   #[@test]
   public function id() {
     $this->fixture->setId(12345);
     $this->assertEquals(12345, $this->fixture->getId());
   }
   
-  /**
-   * Test name
-   *  
-   */
   #[@test]
   public function name() {
     $this->fixture->setName('Component1');
     $this->assertEquals('Component1', $this->fixture->getName());
   }
   
-  /**
-   * Test description
-   *  
-   */
   #[@test]
   public function description() {
     $this->fixture->setDescription('Some component');

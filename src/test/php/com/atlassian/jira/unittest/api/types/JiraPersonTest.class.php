@@ -3,66 +3,37 @@
 use unittest\TestCase;
 use com\atlassian\jira\api\types\JiraPerson;
 
-
-/**
- * Test JiraPerson class
- *
- * @purpose  Test
- */
 class JiraPersonTest extends TestCase {
-  protected
-    $fixture= null;
+  private $fixture;
   
-  /**
-   * Set up
-   *  
-   */
+  /** @return void */
   public function setUp() {
     $this->fixture= new JiraPerson();
   }
   
-  /**
-   * Test instance
-   *  
-   */
+  #[@test]
   public function instance() {
-    $this->assertClass($this->fixture, 'com.atlassian.jira.api.types.JiraPerson');
+    $this->assertInstanceOf('com.atlassian.jira.api.types.JiraPerson', $this->fixture);
   }
   
-  /**
-   * Set self
-   *  
-   */
   #[@test]
   public function self() {
     $this->fixture->setSelf('http://server/path/to/jira/user?username=user1');
     $this->assertEquals('http://server/path/to/jira/user?username=user1', $this->fixture->getSelf());
   }
   
-  /**
-   * Test name
-   *  
-   */
   #[@test]
   public function name() {
     $this->fixture->setName('user1');
     $this->assertEquals('user1', $this->fixture->getName());
   }
   
-  /**
-   * Test emailAddress
-   *  
-   */
   #[@test]
   public function emailAddress() {
     $this->fixture->setEmailAddress('user@domain.tld');
     $this->assertEquals('user@domain.tld', $this->fixture->getEmailAddress());
   }
   
-  /**
-   * Test avatarUrls
-   *  
-   */
   #[@test]
   public function avatarUrls() {
     $this->fixture->setAvatarUrls($urls= [
@@ -72,20 +43,12 @@ class JiraPersonTest extends TestCase {
     $this->assertEquals($urls, $this->fixture->getAvatarUrls());
   }
   
-  /**
-   * Test display name
-   *  
-   */
   #[@test]
   public function displayName() {
     $this->fixture->setDisplayName('User Name');
     $this->assertEquals('User Name', $this->fixture->getDisplayName());
   }
   
-  /**
-   * Test active
-   *  
-   */
   #[@test]
   public function active() {
     $this->fixture->setActive(true);

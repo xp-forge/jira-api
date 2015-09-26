@@ -2,13 +2,12 @@
 
 use peer\URL;
 use lang\IllegalArgumentException;
-
+use lang\XPClass;
 
 /**
  * JIRA client protocol factory
  *
- * @test xp://com.atlassian.unittest.api.JiraClientProtocolFactoryTest
- * @purpose  Protocol factory
+ * @test  xp://com.atlassian.unittest.api.JiraClientProtocolFactoryTest
  */
 class JiraClientProtocolFactory extends \lang\Object {
   
@@ -20,12 +19,8 @@ class JiraClientProtocolFactory extends \lang\Object {
    */
   public static function forURL($url) {
     $u= new URL($url);
-    
-    // Check for REST API client v2
-    if (create(new \lang\types\String($u->getPath()))->contains('/rest/api/2')) {
-      return \lang\XPClass::forName('com.atlassian.jira.api.protocol.JiraClientRest2Protocol')->newInstance($u);
-      
-    // No suitable protocol found
+    if (strstr($u->getPath(), '/rest/api/2')) {
+      return XPClass::forName('com.atlassian.jira.api.protocol.JiraClientRest2Protocol')->newInstance($u);
     } else {
       throw new IllegalArgumentException('No suitable client found for '.$url);
     }

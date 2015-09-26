@@ -12,7 +12,7 @@ class JiraIssue extends \lang\Object {
     $self= null,
     $id= null,
     $key= null,
-    $fields= array();
+    $fields= [];
   
   public function getSelf() {
     return $this->self;

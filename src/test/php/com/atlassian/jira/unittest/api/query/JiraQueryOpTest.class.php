@@ -101,7 +101,7 @@ class JiraQueryOpTest extends TestCase {
    */
   #[@test]
   public function inOperatorMultipleValues() {
-    $this->assertEquals('in (10, 20)', JiraQueryOp::$IN->forValue(array(10, 20)));
+    $this->assertEquals('in (10, 20)', JiraQueryOp::$IN->forValue([10, 20]));
   }
   
   /**
@@ -110,7 +110,7 @@ class JiraQueryOpTest extends TestCase {
    */
   #[@test]
   public function notInOperatorMultipleValues() {
-    $this->assertEquals('not in (10, 20)', JiraQueryOp::$NOT_IN->forValue(array(10, 20)));
+    $this->assertEquals('not in (10, 20)', JiraQueryOp::$NOT_IN->forValue([10, 20]));
   }
   
   /**

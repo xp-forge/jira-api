@@ -107,7 +107,7 @@ class JiraIssueTest extends \unittest\TestCase {
    */
   #[@test]
   public function labels() {
-    $this->fixture->setLabels($labels= array('Technology', 'Development'));
+    $this->fixture->setLabels($labels= ['Technology', 'Development']);
     $this->assertEquals($labels, $this->fixture->getLabels());
   }
   
@@ -117,7 +117,7 @@ class JiraIssueTest extends \unittest\TestCase {
    */
   #[@test]
   public function addLabel() {
-    $this->fixture->setLabels($labels= array('Technology', 'Development'));
+    $this->fixture->setLabels($labels= ['Technology', 'Development']);
     $this->assertTrue($this->fixture->addLabel($labels[]= 'Important'));
     $this->assertEquals($labels, $this->fixture->getLabels());
   }
@@ -128,7 +128,7 @@ class JiraIssueTest extends \unittest\TestCase {
    */
   #[@test]
   public function addExistantLabel() {
-    $this->fixture->setLabels($labels= array('Technology', 'Development'));
+    $this->fixture->setLabels($labels= ['Technology', 'Development']);
     $this->assertFalse($this->fixture->addLabel('Technology'));
     $this->assertEquals($labels, $this->fixture->getLabels());
   }
@@ -139,7 +139,7 @@ class JiraIssueTest extends \unittest\TestCase {
    */
   #[@test]
   public function removeLabel() {
-    $this->fixture->setLabels($labels= array('Technology', 'Development'));
+    $this->fixture->setLabels($labels= ['Technology', 'Development']);
     $this->assertTrue($this->fixture->removeLabel('Technology'));
     unset($labels[0]);
     $this->assertEquals($labels, $this->fixture->getLabels());
@@ -151,7 +151,7 @@ class JiraIssueTest extends \unittest\TestCase {
    */
   #[@test]
   public function removeNonExistantLabel() {
-    $this->fixture->setLabels($labels= array('Technology', 'Development'));
+    $this->fixture->setLabels($labels= ['Technology', 'Development']);
     $this->assertFalse($this->fixture->removeLabel('non-existant'));
     $this->assertEquals($labels, $this->fixture->getLabels());
   }

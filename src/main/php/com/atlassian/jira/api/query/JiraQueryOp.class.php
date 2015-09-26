@@ -22,31 +22,31 @@ abstract class JiraQueryOp extends Enum {
   static $NOT_CONTAINS;
   
   static function __static() {
-    self::$EQUALS=  newinstance(__CLASS__, array(1, 'EQUALS', '='), '{
+    self::$EQUALS= newinstance(__CLASS__, [1, 'EQUALS', '='], '{
       static function __static() {}
     }');
-    self::$NOT_EQUALS=  newinstance(__CLASS__, array(1, 'NOT_EQUALS', '!='), '{
+    self::$NOT_EQUALS= newinstance(__CLASS__, [1, 'NOT_EQUALS', '!='], '{
       static function __static() {}
     }');
-    self::$GREATER_THAN=  newinstance(__CLASS__, array(1, 'GREATER_THAN', '>'), '{
+    self::$GREATER_THAN= newinstance(__CLASS__, [1, 'GREATER_THAN', '>'], '{
       static function __static() {}
     }');
-    self::$GREATER_EQUALS=  newinstance(__CLASS__, array(1, 'GREATER_EQUALS', '>='), '{
+    self::$GREATER_EQUALS= newinstance(__CLASS__, [1, 'GREATER_EQUALS', '>='], '{
       static function __static() {}
     }');
-    self::$LESS_THAN=  newinstance(__CLASS__, array(1, 'LESS_THAN', '<'), '{
+    self::$LESS_THAN= newinstance(__CLASS__, [1, 'LESS_THAN', '<'], '{
       static function __static() {}
     }');
-    self::$LESS_EQUALS=  newinstance(__CLASS__, array(1, 'LESS_EQUALS', '<='), '{
+    self::$LESS_EQUALS= newinstance(__CLASS__, [1, 'LESS_EQUALS', '<='], '{
       static function __static() {}
     }');
-    self::$IN=  newinstance(__CLASS__, array(1, 'IN', 'in'), '{
+    self::$IN= newinstance(__CLASS__, [1, 'IN', 'in'], '{
       static function __static() {}
       function forValue($value) {
         return $this->op." (".implode(", ", (array)$value).")";
       }
     }');
-    self::$NOT_IN=  newinstance(__CLASS__, array(1, 'NOT_IN', 'not in'), '{
+    self::$NOT_IN= newinstance(__CLASS__, [1, 'NOT_IN', 'not in'], '{
       static function __static() {}
       function forValue($value) {
         $str= "";
@@ -56,10 +56,10 @@ abstract class JiraQueryOp extends Enum {
         return $this->op." (".substr($str, 0, -2).")";
       }
     }');
-    self::$CONTAINS=  newinstance(__CLASS__, array(1, 'CONTAINS', '~'), '{
+    self::$CONTAINS= newinstance(__CLASS__, [1, 'CONTAINS', '~'], '{
       static function __static() {}
     }');
-    self::$NOT_CONTAINS=  newinstance(__CLASS__, array(1, 'NOT_CONTAINS', '!~'), '{
+    self::$NOT_CONTAINS= newinstance(__CLASS__, [1, 'NOT_CONTAINS', '!~'], '{
       static function __static() {}
     }');
   }

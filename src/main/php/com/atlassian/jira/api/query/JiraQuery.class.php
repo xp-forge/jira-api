@@ -9,8 +9,8 @@
  */
 class JiraQuery extends JiraQueryCriteria {
   protected
-    $params= array(),
-    $order= array();
+    $params= [],
+    $order= [];
   
   /**
    * Return parameter
@@ -79,7 +79,7 @@ class JiraQuery extends JiraQueryCriteria {
    * @param string type The type of order (ASC, DESC) 
    */
   public function addOrderBy($field, $type) {
-    $this->order[]= array($field, $type);
+    $this->order[]= [$field, $type];
     
     return $this;
   }

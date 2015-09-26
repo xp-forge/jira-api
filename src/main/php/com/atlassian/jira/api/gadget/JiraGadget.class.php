@@ -10,7 +10,7 @@ class JiraGadget extends \lang\Object {
   protected
     $name= '',
     $version= '1.0',
-    $params= array();
+    $params= [];
   
   /**
    * Constructor

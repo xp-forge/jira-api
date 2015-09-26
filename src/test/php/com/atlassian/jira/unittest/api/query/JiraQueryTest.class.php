@@ -71,7 +71,7 @@ class JiraQueryTest extends TestCase {
    */
   #[@test]
   public function getParameters() {
-    $this->assertEquals(array(), $this->fixture->getParameters());
+    $this->assertEquals([], $this->fixture->getParameters());
   }
   
   /**
@@ -82,7 +82,7 @@ class JiraQueryTest extends TestCase {
   public function getParametersWithValues() {
     $this->fixture->setParameter('maxResults', 10);
     
-    $this->assertEquals(array('maxResults' => 10), $this->fixture->getParameters());
+    $this->assertEquals(['maxResults' => 10], $this->fixture->getParameters());
   }
   
   /**

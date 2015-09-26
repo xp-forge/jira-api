@@ -117,7 +117,7 @@ class JiraIssueFieldsTest extends \unittest\TestCase {
    */
   #[@test]
   public function labels() {
-    $this->fixture->setLabels($labels= array('Technology', 'Development'));
+    $this->fixture->setLabels($labels= ['Technology', 'Development']);
     $this->assertEquals($labels, $this->fixture->getLabels());
   }
   
@@ -137,7 +137,7 @@ class JiraIssueFieldsTest extends \unittest\TestCase {
    */
   #[@test]
   public function components() {
-    $this->fixture->setComponents($comps= array(new \com\atlassian\jira\api\types\JiraComponent(), new \com\atlassian\jira\api\types\JiraComponent()));
+    $this->fixture->setComponents($comps= [new \com\atlassian\jira\api\types\JiraComponent(), new \com\atlassian\jira\api\types\JiraComponent()]);
     $this->assertEquals($comps, $this->fixture->getComponents());
   }
   
@@ -167,7 +167,7 @@ class JiraIssueFieldsTest extends \unittest\TestCase {
    */
   #[@test]
   public function watchers() {
-    $this->fixture->setWatchers($persons= array(new JiraPerson(), new JiraPerson()));
+    $this->fixture->setWatchers($persons= [new JiraPerson(), new JiraPerson()]);
     $this->assertEquals($persons, $this->fixture->getWatchers());
   }
   

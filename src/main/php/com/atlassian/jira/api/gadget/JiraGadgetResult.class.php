@@ -14,7 +14,7 @@ class JiraGadgetResult extends \lang\Object {
    * 
    * @param mixed[] data The result data
    */
-  public function __construct($data= array()) {
+  public function __construct($data= []) {
     $this->data= $data;
   }
   

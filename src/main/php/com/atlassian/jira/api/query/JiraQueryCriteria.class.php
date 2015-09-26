@@ -13,7 +13,7 @@ class JiraQueryCriteria extends AbstractJiraQuery {
     OP_OR=  'or';
   
   protected
-    $criterias= array();
+    $criterias= [];
   
   /**
    * Constructor
@@ -38,9 +38,9 @@ class JiraQueryCriteria extends AbstractJiraQuery {
    */
   protected function addNext($conjunction, $what, $value, $op) {
     if ($what instanceof JiraQueryCriteria) {
-      $this->criterias[]= array($conjunction, $what);
+      $this->criterias[]= [$conjunction, $what];
     } else {
-      $this->criterias[]= array($conjunction, $what, $value, $op);
+      $this->criterias[]= [$conjunction, $what, $value, $op];
     }
     
     return $this;

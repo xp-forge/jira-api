@@ -17,12 +17,12 @@ class JiraStatsGadget extends JiraGadget {
   public function __construct() {
     parent::__construct('stats');
     
-    $this->setParams(array(
+    $this->setParams([
       'statType'      => 'assignees',
       'includeResolvedIssues' => 'false',
       'sortDirection' => 'ascending',
       'sortBy'        => 'total'
-    ));
+    ]);
   }
   
   /**

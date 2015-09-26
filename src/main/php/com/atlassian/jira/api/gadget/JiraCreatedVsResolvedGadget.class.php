@@ -17,7 +17,7 @@ class JiraCreatedVsResolvedGadget extends JiraGadget {
   public function __construct() {
     parent::__construct('createdVsResolved');
     
-    $this->setParams(array(
+    $this->setParams([
       'periodName'   => 'daily',
       'daysprevious' => 30,
       'isCummulative' => 'true',
@@ -25,7 +25,7 @@ class JiraCreatedVsResolvedGadget extends JiraGadget {
       'versionLabel' => 'major',
       'width'        => 380,
       'height'       => 260
-    ));
+    ]);
   }
   
   /**

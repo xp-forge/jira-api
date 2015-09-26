@@ -3,6 +3,10 @@ JIRA API ChangeLog
 
 ## ?.?.? / ????-??-??
 
+## 2.0.3 / 2015-09-26
+
+* QA: Migrated codebase to use PHP 5.4 short array syntax (@thekid)
+
 ## 2.0.2 / 2015-04-22
 
 * Fixed JiraClient class - (@ohinckel, @thekid)

@@ -9,7 +9,7 @@
  */
 class JiraStatsGadgetResult extends JiraGadgetResult {
   protected
-    $rows= array(),
+    $rows= [],
     $filterOrProjectName= '',
     $filterOrProjectLink= '',
     $statTypeDescription= '',

@@ -42,7 +42,7 @@ class JiraClientRest2Protocol extends \lang\Object implements JiraClientProtocol
    * @param mixed[] args The arguments
    * @return webservices.rest.RestResponse
    */
-  protected function req($path, $args= array()) {
+  protected function req($path, $args= []) {
     $req= create(new \webservices\rest\RestRequest())
       ->withHeader(new BasicAuthorization($this->url->getUser(), $this->url->getPassword()))
       ->withResource(rtrim($this->url->getPath(), '/').$path)
@@ -88,7 +88,7 @@ class JiraClientRest2Protocol extends \lang\Object implements JiraClientProtocol
    */
   public function queryIssues($query) {
     return $this
-      ->req('/search', array_merge(array('jql' => $query->getQuery()), $query->getParameters()))
+      ->req('/search', array_merge(['jql' => $query->getQuery()], $query->getParameters()))
       ->data('com.atlassian.jira.api.query.JiraQueryResult');
   }
   

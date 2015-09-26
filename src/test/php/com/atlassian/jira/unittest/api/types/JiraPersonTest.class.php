@@ -65,10 +65,10 @@ class JiraPersonTest extends TestCase {
    */
   #[@test]
   public function avatarUrls() {
-    $this->fixture->setAvatarUrls($urls= array(
+    $this->fixture->setAvatarUrls($urls= [
       '16x16' => 'http://server/path/to/jira/secure/useravatar?size=small&avatarId=1',
       '48x48' => 'http://server/path/to/jira/secure/useravatar?avatarId=1'
-    ));
+    ]);
     $this->assertEquals($urls, $this->fixture->getAvatarUrls());
   }
   

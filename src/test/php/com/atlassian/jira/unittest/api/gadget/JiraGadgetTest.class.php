@@ -59,7 +59,7 @@ class JiraGadgetTest extends TestCase {
     $this->fixture->setParam('param1', 'value1');
     $this->fixture->setParam('param2', 'value2');
     
-    $this->assertEquals(array('param1' => 'value1', 'param2' => 'value2'), $this->fixture->getParams());
+    $this->assertEquals(['param1' => 'value1', 'param2' => 'value2'], $this->fixture->getParams());
   }
   
   /**
@@ -73,7 +73,7 @@ class JiraGadgetTest extends TestCase {
       ->withParam('param2', 'value2')
     );
     
-    $this->assertEquals(array('param1' => 'value1', 'param2' => 'value2'), $this->fixture->getParams());
+    $this->assertEquals(['param1' => 'value1', 'param2' => 'value2'], $this->fixture->getParams());
   }
   
   /**
@@ -82,7 +82,7 @@ class JiraGadgetTest extends TestCase {
    */
   #[@test]
   public function setParams() {
-    $this->fixture->setParams($p= array('param1' => 'value1', 'param2' => 'value2'));
+    $this->fixture->setParams($p= ['param1' => 'value1', 'param2' => 'value2']);
     $this->assertEquals($p, $this->fixture->getParams());
   }
   

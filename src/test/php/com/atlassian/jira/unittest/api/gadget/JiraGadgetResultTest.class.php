@@ -18,7 +18,7 @@ class JiraGadgetResultTest extends TestCase {
    * 
    */
   public function setUp() {
-    $this->fixture= new JiraGadgetResult(array('data' => 'value'));
+    $this->fixture= new JiraGadgetResult(['data' => 'value']);
   }
   
   /**
@@ -36,7 +36,7 @@ class JiraGadgetResultTest extends TestCase {
    */
   #[@test]
   public function data() {
-    $this->fixture->setData($d= array('data1' => 'value1', 'data2' => 'value2'));
+    $this->fixture->setData($d= ['data1' => 'value1', 'data2' => 'value2']);
     $this->assertEquals($d, $this->fixture->getData());
   }
   
@@ -46,7 +46,7 @@ class JiraGadgetResultTest extends TestCase {
    */
   #[@test]
   public function initialData() {
-    $this->assertEquals(array('data' => 'value'), $this->fixture->getData());
+    $this->assertEquals(['data' => 'value'], $this->fixture->getData());
   }
 }
 

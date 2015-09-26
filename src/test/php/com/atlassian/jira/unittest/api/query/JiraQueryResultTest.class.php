@@ -65,7 +65,7 @@ class JiraQueryResultTest extends TestCase {
    */
   #[@test]
   public function issues() {
-    $this->fixture->setIssues($issues= array(new \com\atlassian\jira\api\types\JiraIssue(), new \com\atlassian\jira\api\types\JiraIssue()));
+    $this->fixture->setIssues($issues= [new \com\atlassian\jira\api\types\JiraIssue(), new \com\atlassian\jira\api\types\JiraIssue()]);
     $this->assertEquals($issues, $this->fixture->getIssues());
   }
 }

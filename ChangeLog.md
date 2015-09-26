@@ -5,6 +5,8 @@ JIRA API ChangeLog
 
 ## 2.1.0 / 2015-09-27
 
+* Added support for PHP 7
+  (@thekid)
 * Added compatibility with XP 6.5.0: Refrain from using `create()`, use
   new `assertInstanceOf()` instead of deprecated `assertClass()`.
   (@thekid)

@@ -7,7 +7,7 @@
   "keywords": ["module", "xp"],
   "require" : {
     "xp-framework/core" : "^6.5",
-    "xp-framework/rest" : "^6.5",
+    "xp-framework/rest" : "^6.3",
     "xp-framework/networking" : "^6.6",
     "xp-framework/collections" : "^6.5",
     "php" : ">=5.5.0"

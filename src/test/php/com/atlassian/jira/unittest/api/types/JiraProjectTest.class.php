@@ -13,7 +13,7 @@ class JiraProjectTest extends TestCase {
   
   #[@test]
   public function instance() {
-    $this->assertInstanceOf('com.atlassian.jira.api.types.JiraProject', $this->fixture);
+    $this->assertInstanceOf(JiraProject::class, $this->fixture);
   }
   
   #[@test]

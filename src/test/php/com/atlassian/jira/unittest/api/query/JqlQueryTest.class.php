@@ -1,5 +1,6 @@
 <?php namespace com\atlassian\jira\unittest\api\query;
 
+use lang\IllegalArgumentException;
 use unittest\TestCase;
 use com\atlassian\jira\api\query\JqlQuery;
 
@@ -11,12 +12,12 @@ class JqlQueryTest extends TestCase {
     $this->assertEquals($jql, (new JqlQuery($jql))->getQuery());
   }
 
-  #[@test, @expect('lang.IllegalArgumentException')]
+  #[@test, @expect(IllegalArgumentException::class)]
   public function jql_may_not_be_empty() {
     new JqlQuery('');
   }
 
-  #[@test, @expect('lang.IllegalArgumentException')]
+  #[@test, @expect(IllegalArgumentException::class)]
   public function jql_may_not_be_null() {
     new JqlQuery(null);
   }

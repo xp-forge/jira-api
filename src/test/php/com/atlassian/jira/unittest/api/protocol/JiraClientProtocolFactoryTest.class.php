@@ -1,5 +1,7 @@
 <?php namespace com\atlassian\jira\unittest\api\protocol;
 
+use com\atlassian\jira\api\protocol\JiraClientRest2Protocol;
+use lang\IllegalArgumentException;
 use unittest\TestCase;
 use com\atlassian\jira\api\protocol\JiraClientProtocolFactory;
 
@@ -27,14 +29,14 @@ class JiraClientProtocolFactoryTest extends TestCase {
    */
   #[@test]
   public function restV2() {
-    $this->assertInstanceOf('com.atlassian.jira.api.protocol.JiraClientRest2Protocol', $this->fixture->forURL('http://server/rest/api/2/'));
+    $this->assertInstanceOf(JiraClientRest2Protocol::class, $this->fixture->forURL('http://server/rest/api/2/'));
   }
   
   /**
    * Test no suiteable protocol
    *  
    */
-  #[@test, @expect('lang.IllegalArgumentException')]
+  #[@test, @expect(IllegalArgumentException::class)]
   public function noSuitable() {
     $this->fixture->forURL('http://server/a/wrong/url/');
   }

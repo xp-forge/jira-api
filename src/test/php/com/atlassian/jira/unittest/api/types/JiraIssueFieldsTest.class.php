@@ -19,7 +19,7 @@ class JiraIssueFieldsTest extends \unittest\TestCase {
   
   #[@test]
   public function instance() {
-    $this->assertInstanceOf('com.atlassian.jira.api.types.JiraIssueFields', $this->fixture);
+    $this->assertInstanceOf(JiraIssueFields::class, $this->fixture);
   }
   
   #[@test]

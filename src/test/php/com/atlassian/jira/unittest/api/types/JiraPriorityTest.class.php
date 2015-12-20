@@ -12,7 +12,7 @@ class JiraPriorityTest extends TestCase {
   }
   
   public function instance() {
-    $this->assertInstanceOf('com.atlassian.jira.api.types.JiraPriority', $this->fixture);
+    $this->assertInstanceOf(JiraPriority::class, $this->fixture);
   }
   
   #[@test]

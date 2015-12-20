@@ -13,7 +13,7 @@ class JiraStatusTest extends TestCase {
   
   #[@test]
   public function instance() {
-    $this->assertInstanceOf('com.atlassian.jira.api.types.JiraStatus', $this->fixture);
+    $this->assertInstanceOf(JiraStatus::class, $this->fixture);
   }
   
   #[@test]

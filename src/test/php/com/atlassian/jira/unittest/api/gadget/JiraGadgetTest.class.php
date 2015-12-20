@@ -27,7 +27,7 @@ class JiraGadgetTest extends TestCase {
    */
   #[@test]
   public function instance() {
-    $this->assertInstanceOf('com.atlassian.jira.api.gadget.JiraGadget', $this->fixture);
+    $this->assertInstanceOf(JiraGadget::class, $this->fixture);
   }
   
   /**

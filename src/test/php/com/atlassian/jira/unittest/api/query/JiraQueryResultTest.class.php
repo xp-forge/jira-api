@@ -14,7 +14,7 @@ class JiraQueryResultTest extends TestCase {
   
   #[@test]
   public function instance() {
-    $this->assertInstanceOf('com.atlassian.jira.api.query.JiraQueryResult', $this->fixture);
+    $this->assertInstanceOf(JiraQueryResult::class, $this->fixture);
   }
   
   #[@test]

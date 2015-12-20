@@ -3,6 +3,8 @@ JIRA API ChangeLog
 
 ## ?.?.? / ????-??-??
 
+## 3.0.0 / 2015-12-20
+
 * **Heads up: Dropped PHP 5.4 support**. *Note: As the main source is not
   touched, unofficial PHP 5.4 support is still available though not tested
   with Travis-CI*.

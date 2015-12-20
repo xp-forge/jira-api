@@ -9,6 +9,7 @@ JIRA API ChangeLog
   touched, unofficial PHP 5.4 support is still available though not tested
   with Travis-CI*.
   (@thekid)
+* Officially addited support for HHVM (3.5+) support - @thekid
 
 ## 2.1.0 / 2015-09-27
 

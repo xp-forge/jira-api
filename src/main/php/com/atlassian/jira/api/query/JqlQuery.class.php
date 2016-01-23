@@ -36,6 +36,6 @@ class JqlQuery extends AbstractJiraQuery {
    * @return string 
    */
   public function toString() {
-    return $this->getClassName().'{ '.$this->getQuery().' }';
+    return nameof($this).'{ '.$this->getQuery().' }';
   }
 }

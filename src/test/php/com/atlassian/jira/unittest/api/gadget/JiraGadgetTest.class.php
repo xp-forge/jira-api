@@ -92,7 +92,7 @@ class JiraGadgetTest extends TestCase {
    */
   #[@test]
   public function resultClass() {
-    $this->assertEquals($this->fixture->getClassName().'Result', $this->fixture->getResultClass());
+    $this->assertEquals(nameof($this->fixture).'Result', $this->fixture->getResultClass());
   }
 }
 

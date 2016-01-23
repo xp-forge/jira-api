@@ -104,7 +104,7 @@ class JiraGadget extends \lang\Object {
    * @return string
    */
   public function getResultClass() {
-    $name= $this->getClassName().'Result';
+    $name= nameof($this).'Result';
     
     return \lang\ClassLoader::getDefault()->providesClass($name)
       ? $name 
